@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Age calculator app</title>
+
+  <link rel="stylesheet" href="./assets/style.css">
+  <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+  
+</head>
+<body>
+  <div class="desktop-design" id="app">
+    <div class="calculator-input">  
+      <div> 
+        <h3 :style="fieldEmptyDay||invalidDay||invalidDate? 'color:hsl(0, 100%, 67%)': 'color:hsl(0, 1%, 44%)'">DAY</h3>
+        <input id="day" type="number" v-model="inputDay" placeholder="DD" :style="fieldEmptyDay||invalidDay||invalidDate? 'border-color:hsl(0, 100%, 67%)': 'border-color:hsl(0, 0%, 86%)'">
+        <span v-if="fieldEmptyDay">This field is required</span>
+        <span v-if="invalidDay">Must be a valid day</span>
+      </div>
+      <div> 
+        <h3 :style="fieldEmptyMonth||invalidMonth||invalidDate? 'color:hsl(0, 100%, 67%)': 'color:hsl(0, 1%, 44%)'">MONTH</h3>
+        <input id="month" type="number" v-model="inputMonth" placeholder="MM" :style="fieldEmptyMonth||invalidMonth||invalidDate? 'border-color:hsl(0, 100%, 67%)': 'border-color:hsl(0, 0%, 86%)'">
+        <span v-if="fieldEmptyMonth">This field is required</span>
+        <span v-if="invalidMonth">Must be a valid month</span>
+      </div>
+      <div> 
+        <h3 :style="fieldEmptyYear||invalidYear||invalidDate? 'color:hsl(0, 100%, 67%)': 'color:hsl(0, 1%, 44%)'">YEAR</h3>
+        <input id="year" type="number" v-model="inputYear" placeholder="YYYY" :style="fieldEmptyYear||invalidYear||invalidDate? 'border-color:hsl(0, 100%, 67%)': 'border-color:hsl(0, 0%, 86%)'">
+        <span v-if="fieldEmptyYear">This field is required</span>
+        <span v-if="invalidYear">Must be in the past</span>
+      </div>
+    </div>
+    <span v-if="invalidDate">Must be a valid date</span>
+    <div class="calculator-submit">
+      <hr>
+      <button @click="submit"><svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44"><g fill="none" stroke="#FFF" stroke-width="2"><path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"/></g></svg></button>
+    </div>
+    <div class="calculator-output">
+      <div><var>{{ resultYear }}</var> <h2>years</h2></div>
+      <div><var>{{ resultMonth }}</var> <h2>months</h2></div>
+      <div><var>{{ resultDay }}</var> <h2>days</h2></div>
+    </div>
+  </div>
+    
+  <script src="./main.js"></script>
+
+</body>
+</html>

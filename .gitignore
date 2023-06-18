@@ -2,5 +2,7 @@
 # Ignore zip files #
 *.zip
 # Ignore previews and stuff
+/*/style-guide.md
+/*/README-template.md
 /*/design/*
 /trash/*

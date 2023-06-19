@@ -20,11 +20,15 @@ const app = Vue.createApp({
         }
     },
     methods: {
-        submit(){
+        calculateAge(){
             const currentYear = 2023
             const currentMonth = 12
             const currentDay = 31
             const validDays=[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+            this.resultDay = '--'
+            this.resultMonth = '--'
+            this.resultYear = '--'
 
             if(this.inputDay == '')
                 this.fieldEmptyDay = true
@@ -76,6 +80,7 @@ const app = Vue.createApp({
             this.resultDay = currentDay - this.inputDay
             this.resultMonth = currentMonth - this.inputMonth
             this.resultYear = currentYear - this.inputYear
+            return
         }
     }
 

@@ -82,6 +82,13 @@ const app = Vue.createApp({
             this.resultYear = currentYear - this.inputYear
             return
         }
+    },
+    mounted(){
+        window.addEventListener('keyup', function(event) {
+            if (event.keyCode === 13) { 
+              app.calculateAge();
+            }
+          });
     }
 
 }).mount('#app')
